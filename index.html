@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+	<title>bro</title>
+<link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+<link rel="stylesheet" type="text/css" href="node_modules/mdi/css/materialdesignicons.min.css" media="all">
+<link rel="stylesheet" type="text/css" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+<body ng-app="app" ng-controller="maincntrl">
+
+  <div class="alert alert-info">
+    <p>Sort Type: {{ sortType }}</p>
+    <p>Sort Reverse: {{ sortReverse }}</p>
+    <p>Search Query: {{ searchFish }}</p>
+  </div>
+
+
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+        <input type="text" class="form-control" placeholder="Search da Fish" ng-model="searchFish">
+
+      </div>      
+    </div>
+  </form>
+
+    <table class="table table-bordered table-striped">
+    
+    <thead>
+      <tr>
+        <td>
+        <a href="#" ng-click="sortType='name'; sortReverse=!sortReverse">
+
+            Sushi Roll 
+                 <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                 <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                  
+            </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType='fish'; sortReverse=!sortReverse">
+          Fish Type
+          <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+                 <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+          </a> 
+        </td>
+        <td>
+         <a href="#" ng-click="sortType='rate'; sortReverse=!sortReverse">
+          Taste Level 
+            <span ng-show="sortType == 'rate' && !sortReverse" class="fa fa-caret-down"></span>
+                 <span ng-show="sortType == 'rate' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr ng-repeat="roll in sushi | orderBy:sortType:sortReverse | filter:searchFish">
+        <td>{{ roll.name }}</td>
+        <td>{{ roll.fish }}</td>
+        <td>{{ roll.rate }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+
+
+<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.js"></script>
+	<script src="node_modules/angular-material/angular-material.js"></script>
+
+	<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+ 
+ <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<script src="controller/mainctrl.js"></script>
+
+</body>
+</html>

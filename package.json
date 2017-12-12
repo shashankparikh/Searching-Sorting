@@ -1,0 +1,24 @@
+{
+  "name": "boot",
+  "version": "1.0.0",
+  "description": "ed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "asd"
+  ],
+  "author": "shashank",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-animate": "^1.6.2",
+    "angular-aria": "^1.6.2",
+    "angular-material": "^0.11.4",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-router": "^0.4.2",
+    "bootstrap": "^3.3.7",
+    "mdi": "^1.8.36"
+  }
+}
